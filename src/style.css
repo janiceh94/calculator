@@ -6,3 +6,23 @@ body{
     margin: 0;
     background: linear-gradient(to right, #00AAFF, #00FF6C);
 }
+.calculatorGrid{
+    display: grid;
+    margin-top: 2rem; 
+    /* relative to the font size of the root element */
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+    /* minmax = output section 
+    repeat = 5 rows, 6rem height
+    */
+}
+.spanTwo{
+    grid-column: span 2;
+    /* span two columns */
+}
+.result{
+    grid-column: 1/-1;
+    /* column 1 to -1 = span the entire row */
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+}
