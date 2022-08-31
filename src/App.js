@@ -25,16 +25,16 @@ function reducer(state, {type, payload}){
         current: `${state.current || ''}${payload.digit}`
       }
     case ACTIONS.CHOOSE_OPERATION:
-      if(state.current === null && state.previous === null){
+      if(state.current == null && state.previous == null){
         return state
       }
-      if(state.current === null){
+      if(state.current == null){
         return {
           ...state,
           operation: payload.operation,
         }
       }
-      if(state.previous === null){
+      if(state.previous == null){
         return {
           ...state,
           operation: payload.operation,
@@ -53,13 +53,13 @@ function reducer(state, {type, payload}){
   }
 }
 
-function evaluate({curr, prev, operation}){
-  const prev = parseFloat(prev)
-  const curr = parseFloat(curr)
+function evaluate({current, previous, operation}){
+  const prev = parseFloat(previous)
+  const curr = parseFloat(current)
   if(isNaN(prev) || isNaN(curr)){
     return ""
   }
-  let computation = ''
+  let computation = ""
   switch(operation){
     case '÷':
       computation = prev / curr
