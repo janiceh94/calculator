@@ -15,6 +15,7 @@ body{
     /* minmax = output section 
     repeat = 5 rows, 6rem height
     */
+    justify-content: center;
 }
 button{
     cursor: pointer;
