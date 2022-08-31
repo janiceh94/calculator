@@ -24,6 +24,10 @@ function reducer(state, {type, payload}){
         ...state,
         current: `${state.current || ''}${payload.digit}`
       }
+    case ACTIONS.CHOOSE_OPERATION:
+      if(state.current === null && state.previous === null){
+        return state
+      }
     case ACTIONS.CLEAR:
       return {}
   }
