@@ -23,8 +23,6 @@ function reducer(state, {type, payload}){
 function App() {
   const [{current, previous, operation}, dispatch] = useReducer(reducer, {})
 
-  dispatch({type: ACTIONS.ADD_DIGIT, payload: {digit: 1 }})
-
   return (
     <div className = 'calculatorGrid'>
       <div className = 'result'>
