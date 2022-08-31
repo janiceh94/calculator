@@ -14,8 +14,12 @@ export const ACTIONS = {
 function reducer(state, {type, payload}){
   switch(type){
     case ACTIONS.ADD_DIGIT:
-      if(payload.digit === '0' && state.current === '0')
+      if(payload.digit === '0' && state.current === '0'){
         return state
+      }
+      if(payload.digit === '.' && state.current.includes('.')){
+        return state
+      }
       return {
         ...state,
         current: `${state.current || ''}${payload.digit}`
