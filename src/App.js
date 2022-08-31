@@ -58,6 +58,12 @@ function reducer(state, {type, payload}){
       ){
         return state
       }
+      return{
+        ...state,
+        previous: null,
+        operation: null,
+        current: evaluate(state)
+      }
   }
 }
 
