@@ -50,6 +50,14 @@ function reducer(state, {type, payload}){
       }
     case ACTIONS.CLEAR:
       return {}
+    case ACTIONS.EVALUATE:
+      if(
+        state.operation == null || 
+        state.current == null || 
+        state.previous == null
+      ){
+        return state
+      }
   }
 }
 
@@ -103,7 +111,7 @@ function App() {
       <OperationButtons operation = '+' dispatch={dispatch}/>
       <NumButtons digit='0' dispatch={dispatch}/>
       <NumButtons digit='.' dispatch={dispatch}/>
-      <button className = 'spanTwo'>=</button>
+      <button className = 'spanTwo' onClick ={() => dispatch({type: ACTIONS.EVALUATE})}>=</button>
     </div>
   );
 }
