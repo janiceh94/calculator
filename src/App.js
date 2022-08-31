@@ -65,6 +65,20 @@ function reducer(state, {type, payload}){
           current: null
         }
       }
+      if(state.current == null){
+        return state
+      }
+      if(state.current.length === 1){
+        return {
+          ...state,
+          current: null
+        }
+      }
+      return {
+        ...state,
+        current: state.current.slice(0, -1)
+        // removes last digit
+      }
     case ACTIONS.EVALUATE:
       if(
         state.operation == null || 
@@ -117,7 +131,7 @@ function App() {
         <div className = 'current'>{current}</div>
       </div>
       <button className = 'spanTwo' onClick ={() => dispatch({type: ACTIONS.CLEAR})}>AC</button>
-      <button>DEL</button>
+      <button onClick ={() => dispatch({type: ACTIONS.DELETE_DIGIT})}>DEL</button>
       <OperationButtons operation = '÷' dispatch={dispatch}/>
       <NumButtons digit='7' dispatch={dispatch}/>
       <NumButtons digit='8' dispatch={dispatch}/>
