@@ -47,6 +47,30 @@ function reducer(state, {type, payload}){
   }
 }
 
+function evaluate({curr, prev, operation}){
+  const prev = parseFloat(prev)
+  const curr = parseFloat(curr)
+  if(isNaN(prev) || isNaN(curr)){
+    return ""
+  }
+  let computation = ''
+  switch(operation){
+    case '÷':
+      computation = prev / curr
+      break
+    case '*':
+      computation = prev * curr
+      break
+    case '-':
+      computation = prev - curr
+      break
+    case '+':
+      computation = prev + curr
+      break
+  }
+  return computation.toString()
+}
+
 function App() {
   const [{current, previous, operation}, dispatch] = useReducer(reducer, {})
 
