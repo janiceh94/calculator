@@ -28,6 +28,12 @@ function reducer(state, {type, payload}){
       if(state.current === null && state.previous === null){
         return state
       }
+      if(state.current === null){
+        return {
+          ...state,
+          operation: payload.operation,
+        }
+      }
       if(state.previous === null){
         return {
           ...state,
