@@ -36,6 +36,12 @@ function reducer(state, {type, payload}){
           current: null,
         }
       }
+      return {
+        ...state,
+        previous: evaluate(state),
+        operation: payload.operation,
+        current: null,
+      }
     case ACTIONS.CLEAR:
       return {}
   }
